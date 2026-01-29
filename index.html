@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseText Automator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div>
+          <p class="eyebrow">Auto Text Messaging Studio</p>
+          <h1>PulseText Automator</h1>
+          <p class="subtitle">
+            Create a custom personality and send automated texts that feel warm,
+            natural, and on-brand.
+          </p>
+        </div>
+        <div class="status-card" aria-live="polite">
+          <p class="status-label">Automation status</p>
+          <p id="automationStatus" class="status">Idle</p>
+          <p id="automationHint" class="status-hint">
+            Build a personality and start your auto-text routine.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>1. Create a personality</h2>
+            <p>
+              Define how your automated messages sound. Give it a voice, cadence,
+              and intent.
+            </p>
+          </div>
+          <form id="personalityForm" class="stack">
+            <label>
+              Persona name
+              <input type="text" name="personaName" placeholder="e.g. Alex the Optimist" required />
+            </label>
+            <label>
+              Tone
+              <select name="tone">
+                <option value="Warm & supportive">Warm &amp; supportive</option>
+                <option value="Direct & confident">Direct &amp; confident</option>
+                <option value="Playful & upbeat">Playful &amp; upbeat</option>
+                <option value="Professional & concise">Professional &amp; concise</option>
+              </select>
+            </label>
+            <label>
+              Brand mission
+              <textarea
+                name="mission"
+                rows="3"
+                placeholder="Describe the mission or goal of your messages"
+              ></textarea>
+            </label>
+            <label>
+              Favorite phrases (comma-separated)
+              <input
+                type="text"
+                name="phrases"
+                placeholder="You've got this, Let's make today count"
+              />
+            </label>
+            <label>
+              Response style
+              <select name="style">
+                <option value="Gentle nudges">Gentle nudges</option>
+                <option value="Quick check-ins">Quick check-ins</option>
+                <option value="Encouraging calls-to-action">Encouraging calls-to-action</option>
+                <option value="Celebratory updates">Celebratory updates</option>
+              </select>
+            </label>
+            <button type="submit">Save personality</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>2. Configure automation</h2>
+            <p>Set who receives messages, when, and what to send.</p>
+          </div>
+          <div class="stack">
+            <label>
+              Recipient list
+              <input type="text" id="recipientList" placeholder="+1 (555) 010-0001, +1 (555) 010-0020" />
+            </label>
+            <label>
+              Message purpose
+              <textarea
+                id="messagePurpose"
+                rows="3"
+                placeholder="Check-in about daily habits or share a quick update"
+              ></textarea>
+            </label>
+            <div class="grid">
+              <label>
+                Start time
+                <input type="time" id="startTime" />
+              </label>
+              <label>
+                Interval (minutes)
+                <input type="number" id="interval" min="1" value="30" />
+              </label>
+            </div>
+            <div class="actions">
+              <button id="sendOnce" type="button" class="secondary">Send test text</button>
+              <button id="startAutomation" type="button">Start auto texting</button>
+              <button id="stopAutomation" type="button" class="ghost" disabled>Stop</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel timeline">
+          <div class="panel-heading">
+            <h2>3. Message timeline</h2>
+            <p>Generated texts appear here so you can review the flow.</p>
+          </div>
+          <ul id="timeline"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

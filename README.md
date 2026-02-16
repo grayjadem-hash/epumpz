@@ -1,39 +1,26 @@
 # epumpz
 
-## Ollama install quickstart
+Mobile-friendly Python app to plan a vacation based on your girlfriend's personality and interests.
 
-If you want to run:
+## What it does
+- Matches destination ideas to personality + interests (like beach days, pasta, photography, and wholesome vibes).
+- Suggests where to eat and activities for the selected destination.
+- Generates a quick day-by-day itinerary preview.
+- Works well as a **mobile web app preview** until you're back on your laptop.
 
+## Run locally
 ```bash
-ollama run r1-1776:70b
+python app.py
 ```
 
-install Ollama first.
+Then open `http://localhost:8501`.
 
-### Linux/macOS (official installer)
+## Run from phone (no laptop)
+Use a cloud IDE like **GitHub Codespaces** or **Replit**:
+1. Import this repo.
+2. Run `python app.py`.
+3. Open the generated public URL on your phone.
 
-```bash
-curl -fsSL https://ollama.com/install.sh | sh
-```
-
-Then start the service and verify:
-
-```bash
-ollama serve
-# in another shell
-ollama --version
-```
-
-### Pull and run the model
-
-```bash
-ollama run r1-1776:70b
-```
-
-This command downloads the model on first run, then opens an interactive chat.
-
-## Troubleshooting
-
-- `command not found: ollama`: Ollama is not installed or not on `PATH`.
-- `403` during download/install: your environment likely blocks outbound package downloads; retry on a network that allows access to `ollama.com` and GitHub releases.
-- Out-of-memory errors with 70B models: use a smaller model or run with more RAM/VRAM.
+## Notes
+- This app uses only Python standard library (no pip install needed).
+- You can expand it later with maps, restaurant ratings, and booking APIs.
